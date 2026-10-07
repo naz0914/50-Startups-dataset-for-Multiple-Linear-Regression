@@ -85,7 +85,7 @@ Feature Selection ─────── ┼── Wrapper: Recursive Feature Eli
 * **Type**: Embedded method.
 * **Mechanism**: Adds an $L_1$ norm penalty ($\lambda \sum |w_j|$) to the OLS loss function during training on standardized features, shrinking uninformative weights to **exact zero**.
 * **Formula**:
-  $$\min_{w} \left\{ \frac{1}{2n} \|y - Xw\|_2^2 + \alpha \|w\|_1 \right\}$$
+  $$\min_{w} \left[ \frac{1}{2n} \|y - Xw\|_2^2 + \alpha \|w\|_1 \right]$$
 * **Result** (Cross-validated optimal $\alpha = 1,232.89$):
   * `R&D Spend`: $+36,546.56$
   * `Marketing Spend`: $+3,554.80$
