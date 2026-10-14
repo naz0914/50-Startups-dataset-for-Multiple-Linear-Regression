@@ -29,6 +29,13 @@
       </div>
     </a>
     <div class="header-links">
+      <div class="project-switcher-container">
+        <label for="project-select" class="project-label">切換資料集：</label>
+        <select id="project-select" class="project-select" onchange="if(this.value) window.location.href=this.value;">
+          <option value="index.html" selected>📈 50 Startups 新創獲利 (Startup 50)</option>
+          <option value="boston.html">🏡 Boston Housing 波士頓房價預測</option>
+        </select>
+      </div>
       <span class="badge-tag">CRISP-DM Standard</span>
       <a href="https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression" target="_blank" class="github-btn" rel="noopener noreferrer">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

@@ -126,6 +126,51 @@ body {
   transform: translateY(-1px);
 }
 
+/* Project Switcher Navigation */
+.project-switcher-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.25rem 0.6rem;
+}
+
+.project-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.project-select {
+  background: rgba(15, 23, 42, 0.95);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-main);
+  transition: all 0.2s ease;
+}
+
+.project-select:hover, .project-select:focus {
+  border-color: #93c5fd;
+  color: #93c5fd;
+  background: rgba(15, 23, 42, 1);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+}
+
+.project-select option {
+  background: #0f172a;
+  color: white;
+  padding: 0.5rem;
+}
+
 /* Hero Section */
 .hero-banner {
   background: var(--bg-gradient);
