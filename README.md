@@ -133,6 +133,9 @@ $$\hat{y} = 42554.17 + 0.7735 \cdot (\text{R\&D}) + 0.0329 \cdot (\text{Admin}) 
 
 ![前向特徵選擇軌跡圖](forward_selection_curve.png)
 
+#### 5 大特徵選擇方法綜合比較 (RMSE & R² Comparison):
+![5 大特徵選擇方法全量比較](feature_selection_comparison_5methods.png)
+
 > **關鍵商業洞見**：
 > 1. 新創獲利的最核心推手為 **`R&D Spend`（研發支出）**，其次為 **`Marketing Spend`（行銷支出）**。
 > 2. 行政管理（`Administration`）與註冊地點（`State`）為冗餘特徵，剔除後使 RMSE 由 **$9,137.99** 顯著改善至 **$8,198.80**！
@@ -165,17 +168,20 @@ $$\hat{y} = 42554.17 + 0.7735 \cdot (\text{R\&D}) + 0.0329 \cdot (\text{Admin}) 
 
 ```bash
 Multiple-Linear-Regression/
+├── index.html                                  # StatsUnlock 風格互動網頁 (即時試算器與診斷儀表板)
+├── style.css                                   # 互動網頁設計系統與樣式
+├── app.js                                      # 前端矩陣推論引擎與 Chart.js 互動繪圖邏輯
 ├── 50_Startup_Multiple_Linear_Regression.ipynb   # 完整的 Jupyter Notebook 筆記與互動教學
 ├── multiple_linear_regression.py               # 端到端 CRISP-DM 執行腳本 (含 Forward Selection & Deployment)
 ├── feature_selection.py                        # 五大特徵選擇方法綜合評估 (Filter / Wrapper / Embedded)
 ├── model.pkl                                   # 標準 pickle 格式序列化模型
 ├── model.pkl.gz                                # gzip 壓縮格式序列化模型
+├── feature_selection_comparison_5methods.png   # 5 大特徵選擇方法 RMSE & R² 綜合比較圖
+├── forward_selection_curve.png                 # 前向選擇特徵數 vs RMSE/R2 軌跡圖
 ├── actual_vs_predicted.png                     # 預測值 vs 實際值散佈圖
 ├── scatter_exploration.png                     # 特徵探勘散佈圖
 ├── learning_curve.png                          # 過擬合/欠擬合診斷學習曲線
-├── forward_selection_curve.png                 # 前向選擇特徵數 vs RMSE/R2 軌跡圖
 ├── feature_selection_comparison.png            # 五大特徵選擇方法 6 合 1 綜合對比圖
-├── model_performance_comparison.png            # 特徵子集模型表現變化圖
 ├── requirements.txt                            # 專案環境依賴套件清單
 └── README.md                                   # 完整專案文檔與報告說明
 ```
