@@ -1,11 +1,33 @@
 # 📈 AIoT-DA L6: Multiple Linear Regression & Interactive Calculator
 ## 50 Startups & Boston Housing (CRISP-DM Standard Pipeline)
 
+---
+
+### 🌐 專案核心網址導覽 (Project & Quick Access URLs)
+
+| 類別 (Category) | 項目名稱 (Resource Name) | 完整 URL 連結 (Full URL) |
+| :--- | :--- | :--- |
+| **🐙 GitHub 專案庫** | **原始碼儲存庫 (Source Code Repository)** | [https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression](https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression) |
+| **🚀 互動式網站 1** | **📈 50 Startups 新創獲利預測計算器 (Live Demo)** | [https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/) |
+| **🚀 互動式網站 2** | **🏡 Boston Housing 波士頓房價估價系統 (Live Demo)** | [https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/boston.html](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/boston.html) |
+| **📊 UI 原型參考** | **StatsUnlock 線上多元線性迴歸計算器** | [https://statsunlock.com/multiple-linear-regression-calculator/](https://statsunlock.com/multiple-linear-regression-calculator/) |
+| **📁 原始資料 1** | **Kaggle 50 Startups 資料集說明** | [https://www.kaggle.com/code/akash17/50-startups-linearregression](https://www.kaggle.com/code/akash17/50-startups-linearregression) |
+| **📁 原始資料 2** | **50 Startups 原始 CSV 檔案 (Gist Raw)** | [https://gist.githubusercontent.com/GaneshSparkz/.../50_Startups.csv](https://gist.githubusercontent.com/GaneshSparkz/b5662effbdae8746f7f7d8ed70c42b2d/raw/faf8b1a0d58e251f48a647d3881e7a960c3f0925/50_Startups.csv) |
+| **📁 原始資料 3** | **50 Startups 備用 CSV (GitHub Raw)** | [https://github.com/harimittapalli/Mulitple-Linear-Reggression/.../50_Startups.csv](https://github.com/harimittapalli/Mulitple-Linear-Reggression/raw/master/50_Startups.csv) |
+| **📁 原始資料 4** | **Boston Housing 原始 CSV 檔案 (GitHub Raw)** | [https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv](https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv) |
+| **📁 原始資料 5** | **CMU StatLib Boston Housing 檔案庫** | [http://lib.stat.cmu.edu/datasets/boston](http://lib.stat.cmu.edu/datasets/boston) |
+| **📖 課程與學術參考 1** | **iT 邦幫忙 鐵人賽多元迴歸教學範例** | [https://ithelp.ithome.com.tw/m/articles/10299081](https://ithelp.ithome.com.tw/m/articles/10299081) |
+| **🎓 課程與學術參考 2** | **國立聯合大學 陳士杰教授 機器學習搜尋演算法教學** | [http://debussy.im.nuu.edu.tw/sjchen/ML_final.html](http://debussy.im.nuu.edu.tw/sjchen/ML_final.html) |
+
+---
+
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression)
+[![Live Demo: 50 Startups](https://img.shields.io/badge/Live%20Demo-50%20Startups-2563eb)](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/)
+[![Live Demo: Boston Housing](https://img.shields.io/badge/Live%20Demo-Boston%20Housing-10b981)](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/boston.html)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4+-orange.svg)](https://scikit-learn.org/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-4.4.1-ff6384.svg)](https://www.chartjs.org/)
-[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success.svg)](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/)
 
 An end-to-end Machine Learning suite implementing **Multiple Linear Regression** on both **Kaggle 50 Startups** and **Kaggle Boston Housing** datasets following the **CRISP-DM (Cross-Industry Standard Process for Data Mining)** methodology. Developed in collaboration with **ChatGPT Prompt Engineering**, this repository includes production-grade Python modeling pipelines, comprehensive **5 Feature Selection Algorithms Benchmarks**, interactive **Jupyter Notebooks**, and a modern **StatsUnlock-style web dashboard** equipped with a real-time **Dataset Dropdown Switcher**.
 
