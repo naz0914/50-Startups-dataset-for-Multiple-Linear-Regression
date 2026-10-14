@@ -44,6 +44,17 @@ An end-to-end Machine Learning suite implementing **Multiple Linear Regression**
 
 ---
 
+## 📸 互動式網頁操作界面截圖 (Interactive Web Application Preview)
+
+![50 Startups & Boston Housing Interactive Web Dashboard](web_app_screenshot.png)
+
+> **🔗 立即在線體驗 (Click to Open Live Demos)**:
+> - **📈 50 Startups 新創獲利預測計算器**: [https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/)
+> - **🏡 Boston Housing 波士頓房價估價系統**: [https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/boston.html](https://naz0914.github.io/50-Startups-dataset-for-Multiple-Linear-Regression/boston.html)
+> - **🐙 GitHub 專案儲存庫 (Source Code)**: [https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression](https://github.com/naz0914/50-Startups-dataset-for-Multiple-Linear-Regression)
+
+---
+
 ## 🌟 Interactive Web Highlights (StatsUnlock Aesthetic)
 
 1. **Dual Real-Time What-If Simulators**:
