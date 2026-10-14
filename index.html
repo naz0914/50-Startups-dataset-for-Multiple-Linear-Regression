@@ -287,10 +287,18 @@
 
       <!-- Chart Tabs -->
       <div class="chart-tabs" role="tablist">
-        <button class="tab-btn active" onclick="switchChartTab('pred_vs_actual')">🎯 預測值 vs 實際值 (Actual vs Predicted)</button>
+        <button class="tab-btn active" onclick="switchChartTab('fs_5methods')">✨ 5 大演算法全量疊加比較 (Compare All 5)</button>
+        <button class="tab-btn" onclick="switchChartTab('pred_vs_actual')">🎯 預測值 vs 實際值 (Actual vs Predicted)</button>
         <button class="tab-btn" onclick="switchChartTab('fs_curve')">📈 前向選擇階梯軌跡 (RMSE & R² Curve)</button>
         <button class="tab-btn" onclick="switchChartTab('learning_curve')">🔄 過擬合診斷學習曲線 (Learning Curve)</button>
         <button class="tab-btn" onclick="switchChartTab('feature_importance')">🏆 特徵重要性對比 (Feature Weights)</button>
+      </div>
+
+      <!-- Metric Toggle for 5 Methods Chart -->
+      <div id="fs5-metric-toggle" style="display: flex; gap: 0.5rem; margin-bottom: 1rem; align-items: center;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">指標切換：</span>
+        <button type="button" class="btn-primary" id="btn-toggle-rmse" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;" onclick="setFS5Metric('rmse')">📉 RMSE 均方根誤差 (越低越好)</button>
+        <button type="button" class="btn-secondary" id="btn-toggle-r2" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;" onclick="setFS5Metric('r2')">📈 R² 決定係數 (越高越好)</button>
       </div>
 
       <div class="chart-wrapper">

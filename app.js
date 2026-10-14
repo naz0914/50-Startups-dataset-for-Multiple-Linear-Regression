@@ -545,7 +545,8 @@ const APP_DATA = {
 // State Variables
 let currentMode = 'top2'; // 'top2' | 'full'
 let currentState = 'California';
-let currentChartTab = 'pred_vs_actual';
+let currentChartTab = 'fs_5methods';
+let currentFS5Metric = 'rmse'; // 'rmse' | 'r2'
 let mainChart = null;
 
 // Initialize on DOM loaded
@@ -791,8 +792,41 @@ function filterDataTable() {
 }
 
 // Initialize Charts
+// 5-Method Comparison Data
+const FS_5METHODS_DATA = {
+  k_labels: ['1 特徵', '2 特徵', '3 特徵', '4 特徵', '5 特徵 (All-in)'],
+  rmse: {
+    'Lasso (L1 Ranking)': [8274.87, 8198.80, 8309.06, 8409.92, 9137.99],
+    'Forward SFS': [8274.87, 8198.80, 8309.06, 8409.92, 9137.99],
+    'RFE': [8274.87, 8198.80, 8803.78, 8997.20, 9137.99],
+    'Corr/Consensus Ranking': [8274.87, 8198.80, 8803.78, 8940.15, 9137.99],
+    'Exhaustive Search': [8274.87, 8198.80, 8171.65, 8178.37, 9137.99]
+  },
+  r2: {
+    'Lasso (L1 Ranking)': [0.946459, 0.947439, 0.946015, 0.944697, 0.934707],
+    'Forward SFS': [0.946459, 0.947439, 0.946015, 0.944697, 0.934707],
+    'RFE': [0.946459, 0.947439, 0.939396, 0.936703, 0.934707],
+    'Corr/Consensus Ranking': [0.946459, 0.947439, 0.939396, 0.937500, 0.934707],
+    'Exhaustive Search': [0.946459, 0.947439, 0.947786, 0.947700, 0.934707]
+  },
+  colors: {
+    'Lasso (L1 Ranking)': '#1f77b4',
+    'Forward SFS': '#ff7f0e',
+    'RFE': '#2ca02c',
+    'Corr/Consensus Ranking': '#d62728',
+    'Exhaustive Search': '#9467bd'
+  }
+};
+
 function initChart() {
-  renderPredVsActualChart();
+  renderFS5MethodsChart();
+}
+
+function setFS5Metric(metric) {
+  currentFS5Metric = metric;
+  document.getElementById('btn-toggle-rmse').className = (metric === 'rmse') ? 'btn-primary' : 'btn-secondary';
+  document.getElementById('btn-toggle-r2').className = (metric === 'r2') ? 'btn-primary' : 'btn-secondary';
+  renderFS5MethodsChart();
 }
 
 function switchChartTab(tab) {
@@ -800,10 +834,65 @@ function switchChartTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
 
-  if (tab === 'pred_vs_actual') renderPredVsActualChart();
+  const toggleBox = document.getElementById('fs5-metric-toggle');
+  if (toggleBox) {
+    toggleBox.style.display = (tab === 'fs_5methods') ? 'flex' : 'none';
+  }
+
+  if (tab === 'fs_5methods') renderFS5MethodsChart();
+  else if (tab === 'pred_vs_actual') renderPredVsActualChart();
   else if (tab === 'fs_curve') renderFSCurveChart();
   else if (tab === 'learning_curve') renderLearningCurveChart();
   else if (tab === 'feature_importance') renderFeatureImportanceChart();
+}
+
+function renderFS5MethodsChart() {
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  if (mainChart) mainChart.destroy();
+
+  const isRMSE = (currentFS5Metric === 'rmse');
+  const datasetMap = isRMSE ? FS_5METHODS_DATA.rmse : FS_5METHODS_DATA.r2;
+
+  const datasets = Object.keys(datasetMap).map(name => {
+    return {
+      label: name,
+      data: datasetMap[name],
+      borderColor: FS_5METHODS_DATA.colors[name],
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      pointRadius: 5,
+      pointHoverRadius: 8,
+      tension: 0.15
+    };
+  });
+
+  mainChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: FS_5METHODS_DATA.k_labels,
+      datasets: datasets
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { boxWidth: 14, font: { weight: '600' } } },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => isRMSE ? ctx.dataset.label + ': ' + fmtCurr(ctx.raw) : ctx.dataset.label + ': R² = ' + fmtNum(ctx.raw, 6)
+          }
+        }
+      },
+      scales: {
+        x: { title: { display: true, text: '特徵數量 Number of Features (k)' } },
+        y: {
+          title: { display: true, text: isRMSE ? 'RMSE 均方根誤差 ($) [越低越好]' : 'R² 決定係數 [越高越好]' },
+          min: isRMSE ? 8100 : 0.932,
+          max: isRMSE ? 9200 : 0.950
+        }
+      }
+    }
+  });
 }
 
 function renderPredVsActualChart() {
